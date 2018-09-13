@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Js sample</title>
+  </head>
+  <body></body>
+  <script>
+   "use strict";
+   var users = [{
+     name: "Вася",
+     surname: 'Иванов',
+     age: 20
+   }, {
+     name: "Петя",
+     surname: 'Чапаев',
+     age: 25
+   }, {
+     name: "Маша",
+     surname: 'Медведева',
+     age: 18
+   }];
+   function byField(field) {
+     switch(field) {
+       case 'name': return (function(a,b) {
+	 return a.name > b.name ? 1 : -1;
+       });
+       case 'age': return (function(a,b) {
+	 return a.age > b.age ? 1 : -1;
+       }); 
+     }
+   }
+   users.sort(byField('age'));
+   users.forEach(function(user) {
+     alert( user.age );
+   }); // Вася, Маша, Петя
+  </script>
+</html>
